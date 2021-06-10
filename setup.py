@@ -5,8 +5,6 @@ import sys
 def install():
     try:
         import ams
-        subprocess.check_call(
-            [sys.executable, "-m", "pip", "install", "--upgrade", "git+https://github.com/smartmuel/ams.git"])
     except:
         subprocess.check_call([sys.executable, "-m", "pip", "install", "git+https://github.com/smartmuel/ams.git#egg=ams"])
 
