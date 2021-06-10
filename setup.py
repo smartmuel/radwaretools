@@ -3,7 +3,12 @@ import subprocess
 import sys
 
 def install():
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "--upgrade", "git+https://github.com/smartmuel/ams.git"])
+    try:
+        import ams
+        subprocess.check_call(
+            [sys.executable, "-m", "pip", "install", "--upgrade", "git+https://github.com/smartmuel/ams.git"])
+    except:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "git+https://github.com/smartmuel/ams.git#egg=ams"])
 
 def install1(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package, "--trusted-host","pypi.org", "--trusted-host","files.pythonhosted.org"])
